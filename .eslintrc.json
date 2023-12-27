@@ -25,10 +25,15 @@
     ],
     "rules": {
         "react/react-in-jsx-scope": "off",
-        "prettier/prettier": "error",
         "@typescript-eslint/no-unused-vars": "off",
         "@typescript-eslint/no-explicit-any": "off",
         "no-use-before-define": "off",
-        "space-before-function-paren": "off"
+        "space-before-function-paren": "off",
+        "prettier/prettier": [
+            "error",
+            {
+                "endOfLine": "off"
+            }
+        ]
     }
 }
