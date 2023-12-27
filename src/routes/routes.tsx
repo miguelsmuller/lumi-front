@@ -11,8 +11,8 @@ import {
 } from "@mui/icons-material";
 
 import { useDrawerContext } from "../shared/contexts/DrawerContext";
-import Dashboard from "../pages/dashboard";
-import Invoices from "../pages/invoices";
+import Dashboard from "../pages/dashboard/Dashboard";
+import Invoices from "../pages/invoices/Invoices";
 
 export default function AppRouter() {
   const { setDrawerOptions } = useDrawerContext();
