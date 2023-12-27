@@ -1,27 +1,19 @@
 /* eslint-disable import/no-duplicates */
 
-import { Fragment } from "react";
+import React, { Fragment, PropsWithChildren } from "react";
+import { Person } from "@mui/icons-material";
 import { useTheme, useMediaQuery } from "@mui/material";
-import { Avatar, Box, Divider, Drawer } from "@mui/material";
-import {
-  List,
-  ListItemButton,
-  ListItemIcon,
-  ListItemText,
-} from "@mui/material";
+import { Avatar, Box, Divider, Drawer, List } from "@mui/material";
 
-import { Person, Home } from "@mui/icons-material";
 import { useDrawerContext } from "../../contexts";
+import { SideMenuItem } from "./SideMenuItem";
 
-interface SideMenuProps {
-  children?: React.ReactNode;
-}
 
-export const SideMenu: React.FC<SideMenuProps> = ({ children }) => {
+export const SideMenu: React.FC<PropsWithChildren> = ({ children }) => {
   const theme = useTheme();
   const isSmall = useMediaQuery(theme.breakpoints.down("sm"));
 
-  const { isDrawerOpen, toggleDrawerOpen } = useDrawerContext();
+  const { isDrawerOpen, toggleDrawerOpen, drawerOptions } = useDrawerContext();
 
   return (
     <Fragment>
@@ -56,12 +48,15 @@ export const SideMenu: React.FC<SideMenuProps> = ({ children }) => {
 
           <Box flex={1}>
             <List component="nav">
-              <ListItemButton>
-                <ListItemIcon>
-                  <Home />
-                </ListItemIcon>
-                <ListItemText primary="Dashboard" />
-              </ListItemButton>
+              {drawerOptions.map((drawerOptions) => (
+                <SideMenuItem
+                  path={drawerOptions.path}
+                  key={drawerOptions.path}
+                  icon={drawerOptions.icon}
+                  label={drawerOptions.label}
+                  onClick={isSmall ? toggleDrawerOpen : undefined}
+                />
+              ))}
             </List>
           </Box>
         </Box>
