@@ -1,10 +1,6 @@
 import { useEffect } from "react";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Navigate,
-} from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
+
 import {
   Receipt as ReceiptIcon,
   Dashboard as DashboardIcon,
@@ -14,7 +10,7 @@ import { useDrawerContext } from "../shared/contexts/DrawerContext";
 import Dashboard from "../pages/dashboard/Dashboard";
 import Invoices from "../pages/invoices/Invoices";
 
-export default function AppRouter() {
+export function AppRoutes() {
   const { setDrawerOptions } = useDrawerContext();
 
   useEffect(() => {
@@ -33,12 +29,10 @@ export default function AppRouter() {
   });
 
   return (
-    <Router>
-      <Routes>
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/invoices" element={<Invoices />} />
-        <Route path="*" element={<Navigate to="/dashboard" />} />
-      </Routes>
-    </Router>
+    <Routes>
+      <Route path="/dashboard" element={<Dashboard />} />
+      <Route path="/invoices" element={<Invoices />} />
+      <Route path="*" element={<Navigate to="/dashboard" />} />
+    </Routes>
   );
 }

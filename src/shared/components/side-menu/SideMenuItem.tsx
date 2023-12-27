@@ -1,14 +1,12 @@
 import { useMatch, useNavigate, useResolvedPath } from "react-router-dom";
 import { ListItemButton, ListItemIcon, ListItemText } from "@mui/material";
 
-
 interface ISideMenuItemProps {
   label: string;
   icon: React.ReactNode;
   path: string;
   onClick: (() => void) | undefined;
 }
-
 
 export const SideMenuItem: React.FC<ISideMenuItemProps> = ({
   label,

@@ -8,7 +8,6 @@ import { Avatar, Box, Divider, Drawer, List } from "@mui/material";
 import { useDrawerContext } from "../../contexts";
 import { SideMenuItem } from "./SideMenuItem";
 
-
 export const SideMenu: React.FC<PropsWithChildren> = ({ children }) => {
   const theme = useTheme();
   const isSmall = useMediaQuery(theme.breakpoints.down("sm"));

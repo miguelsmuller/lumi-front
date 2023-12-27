@@ -1,15 +1,5 @@
-import { Button } from "@mui/material";
-import { SideMenu } from "../../shared/components/side-menu/SideMenu";
-import { useDrawerContext } from "../../shared/contexts";
+import { BaseLayout } from "../../shared/layouts/BaseLayout";
 
 export default function Dashboard() {
-  const { toggleDrawerOpen } = useDrawerContext();
-
-  return (
-    <div>
-      <SideMenu>
-        <Button onClick={toggleDrawerOpen}>Teste MUI</Button>
-      </SideMenu>
-    </div>
-  );
+  return <BaseLayout title="Dashboard">Exemplo de Página Dashboard</BaseLayout>;
 }
