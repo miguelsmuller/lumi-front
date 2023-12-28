@@ -29,11 +29,6 @@
         "@typescript-eslint/no-explicit-any": "off",
         "no-use-before-define": "off",
         "space-before-function-paren": "off",
-        "prettier/prettier": [
-            "error",
-            {
-                "endOfLine": "auto"
-            }
-        ]
+        "no-multiple-empty-lines": ["error", { "max": 2, "maxEOF": 1 }]
     }
 }
