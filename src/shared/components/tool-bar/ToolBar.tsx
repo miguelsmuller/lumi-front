@@ -1,4 +1,5 @@
 import { Box, Divider, Paper, TextField, useTheme } from "@mui/material";
+import { DatePicker } from "@mui/x-date-pickers";
 
 export const ToolBar: React.FC = () => {
   const theme = useTheme();
@@ -18,6 +19,9 @@ export const ToolBar: React.FC = () => {
       <TextField size="small" placeholder="Pesquisar..." />
 
       <Divider variant="middle" orientation="vertical" />
+
+      <DatePicker slotProps={{ textField: { size: 'small' } }} />
+      <DatePicker slotProps={{ textField: { size: 'small' } }} />
     </Box>
   );
 };
