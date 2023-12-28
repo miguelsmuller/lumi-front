@@ -26,7 +26,7 @@ export function AppRoutes() {
         icon: <ReceiptIcon />,
       },
     ]);
-  });
+  }, []);
 
   return (
     <Routes>
