@@ -45,7 +45,7 @@ export const BaseLayout: React.FC<IBaseLayoutProps> = ({ children, title }) => {
         </Typography>
       </Box>
 
-      <Box flex={1} overflow="auto">
+      <Box flex={1} overflow="auto" width={"100%"}>
         {children}
       </Box>
     </Box>

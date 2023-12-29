@@ -15,23 +15,24 @@ export interface IInvoice {
   createdAt: string;
 }
 
+export interface IInvoiceList {
+  data: IInvoice[];
+  count: number;
+};
+
 type TAPIResponse = {
   status: string;
   data: IInvoice[];
   count: number;
 };
 
-type TResponse = {
-  data: IInvoice[];
-  count: number;
-};
 
 const getAll = async (
   startAt?: string,
   endAt?: string,
   page = 1,
   limit = Environment.API_DEFAULT_LIMIT,
-): Promise<TResponse | Error> => {
+): Promise<IInvoiceList | Error> => {
   try {
     const urlBase = Environment.API_URL_BASE;
 
