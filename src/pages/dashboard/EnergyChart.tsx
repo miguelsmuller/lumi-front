@@ -25,6 +25,7 @@ export const EnergyChart: React.FC<{ data: IInvoice[] }> = ({ data }) => {
       padding={1}
       paddingX={2}
       variant="outlined"
+      flex={"1 1 50%"}
     >
       {chart && (
         <LineChart
@@ -41,7 +42,6 @@ export const EnergyChart: React.FC<{ data: IInvoice[] }> = ({ data }) => {
             },
           ]}
           series={chart.values}
-          width={300}
           height={300}
         />
       )}

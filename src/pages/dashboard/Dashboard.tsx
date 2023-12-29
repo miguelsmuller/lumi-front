@@ -27,12 +27,10 @@ export default function Dashboard() {
     });
   }, []);
 
-  const theme = useTheme();
-
   return (
     <BaseLayout title="Dashboard">
       <Box
-        width={"100%"}
+        width={"auto"}
         display={"flex"}
         alignItems={"center"}
         gap={1}
