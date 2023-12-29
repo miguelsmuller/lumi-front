@@ -40,7 +40,7 @@ export function transformToEnergyChartData(invoices: IInvoice[]): ChartData {
     groupedData[dateKey].energyConsumed +=
       invoice.electricalEnergyQuantity + invoice.electricalEnergySceeQuantity;
     groupedData[dateKey].energyOffset += invoice.electricalEnergyGdiQuantity;
-  });
+  },[invoices]);
 
   const labels: Date[] = [];
   const energyConsumedData: number[] = [];

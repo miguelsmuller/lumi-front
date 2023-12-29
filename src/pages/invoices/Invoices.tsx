@@ -15,7 +15,7 @@ export default function Invoices() {
   useEffect(() => {
     setIsLoading(true);
 
-    InvoicesService.getAll().then((result) => {
+    InvoicesService.getAll({limit: 999}).then((result) => {
       setIsLoading(false)
 
       if (result instanceof Error) {

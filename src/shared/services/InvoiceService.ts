@@ -20,20 +20,29 @@ export interface IInvoiceList {
   count: number;
 };
 
-type TAPIResponse = {
+interface IAPIResponse {
   status: string;
   data: IInvoice[];
   count: number;
 };
 
+interface GetAllOptions {
+  startAt?: string;
+  endAt?: string;
+  page?: number;
+  limit?: number;
+}
 
-const getAll = async (
-  startAt?: string,
-  endAt?: string,
-  page = 1,
-  limit = Environment.API_DEFAULT_LIMIT,
-): Promise<IInvoiceList | Error> => {
+const getAll = async (options: GetAllOptions = {}): Promise<IInvoiceList | Error> => {
   try {
+
+    const {
+      startAt,
+      endAt,
+      page = 1,
+      limit = Environment.API_DEFAULT_LIMIT
+    } = options;
+
     const urlBase = Environment.API_URL_BASE;
 
     let urlRelativa = `${urlBase}/invoices?limit=${limit}&page=${page}`;
@@ -54,7 +63,7 @@ const getAll = async (
       throw new Error(`Erro na requisição: ${response.status}`);
     }
 
-    const data: TAPIResponse = await response.json();
+    const data: IAPIResponse = await response.json();
 
     return {
       data: data.data,

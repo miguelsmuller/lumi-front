@@ -15,7 +15,7 @@ export default function Dashboard() {
   useEffect(() => {
     setIsLoading(true);
 
-    InvoicesService.getAll().then((result) => {
+    InvoicesService.getAll({limit: 30}).then((result) => {
       setIsLoading(false)
 
       if (result instanceof Error) {
