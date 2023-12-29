@@ -4,19 +4,15 @@ import { Box, Paper } from "@mui/material";
 import { IInvoice } from "../../shared/services/InvoiceService";
 import { useState, useEffect } from "react";
 
+import { ChartData, transformToMonetaryChartData } from "./monetaryUtils";
+
 export const MonetaryChart: React.FC<{ data: IInvoice[] }> = ({ data }) => {
-  const chartData = {
-    "labels": [new Date(2023,6,1), new Date(2023,7,1), new Date(2023,8,1)],
-    "values": [
-        {
-          "data": [4000, 3000, 2000],
-          "label": "energy_consumed"},
-        {
-          "data": [2400, 1398, 9800],
-          "label": "energy_offset"
-        }
-    ]
-  }
+  const [chart, setChart] = useState<ChartData>();
+
+  useEffect(() => {
+    const chartData = transformToMonetaryChartData(data);
+    setChart(chartData);
+  }, [data]);
 
   return (
     <Box
@@ -29,19 +25,26 @@ export const MonetaryChart: React.FC<{ data: IInvoice[] }> = ({ data }) => {
       paddingX={2}
       variant="outlined"
     >
-      <LineChart
-        xAxis={[
-          {
-            id: 'Years',
-            data: chartData.labels,
-            scaleType: 'time',
-            valueFormatter: (date) => date.getFullYear().toString(),
-          },
-        ]}
-        series={chartData.values}
-        width={300}
-        height={300}
-      />
+      {chart && (
+        <LineChart
+          xAxis={[
+            {
+              id: "Month",
+              data: chart.labels,
+              scaleType: "time",
+              valueFormatter: (date) => {
+                const month = String(date.getMonth() + 1).padStart(2, '0');
+                const year = date.getFullYear();
+                return `${month}/${year}`;
+              },
+            },
+          ]}
+          series={chart.values}
+          width={300}
+          height={300}
+        />
+      )}
     </Box>
   );
 };
+

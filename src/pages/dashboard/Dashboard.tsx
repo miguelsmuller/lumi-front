@@ -22,7 +22,6 @@ export default function Dashboard() {
         console.log("Erro na busca pelos dados no serviço");
         return;
       }
-      console.log(result.data)
       setRows(result.data)
       setTotalCount(result.count)
     });

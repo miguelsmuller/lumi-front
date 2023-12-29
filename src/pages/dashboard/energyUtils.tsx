@@ -23,7 +23,7 @@ function getMonthNumber(monthName: string): number {
   return index;
 }
 
-export function transformToChartData(invoices: IInvoice[]): ChartData {
+export function transformToEnergyChartData(invoices: IInvoice[]): ChartData {
   const groupedData: {
     [key: string]: { energyConsumed: number; energyOffset: number };
   } = {};

@@ -4,14 +4,14 @@ import { Box, Paper } from "@mui/material";
 import { IInvoice } from "../../shared/services/InvoiceService";
 import { useState, useEffect } from "react";
 
-import { ChartData, transformToChartData } from "./utils";
+import { ChartData, transformToEnergyChartData } from "./energyUtils";
 
 
 export const EnergyChart: React.FC<{ data: IInvoice[] }> = ({ data }) => {
   const [chart, setChart] = useState<ChartData>();
 
   useEffect(() => {
-    const chartData = transformToChartData(data);
+    const chartData = transformToEnergyChartData(data);
     setChart(chartData);
   }, [data]);
 
