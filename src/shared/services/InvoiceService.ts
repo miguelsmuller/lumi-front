@@ -1,5 +1,3 @@
-import { Environment } from "../environment";
-
 export interface IInvoice {
   id: number;
   clientId: string;
@@ -40,10 +38,10 @@ const getAll = async (options: GetAllOptions = {}): Promise<IInvoiceList | Error
       startAt,
       endAt,
       page = 1,
-      limit = Environment.API_DEFAULT_LIMIT
+      limit = process.env.REACT_APP_API_LIMIT
     } = options;
 
-    const urlBase = Environment.API_URL_BASE;
+    const urlBase = process.env.REACT_APP_API_URL;
 
     let urlRelativa = `${urlBase}/invoices?limit=${limit}&page=${page}`;
 
