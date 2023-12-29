@@ -54,6 +54,19 @@ Os detalhes completos do desafio, incluindo especificações para o projeto do f
 
 - **`npm run lint`**: Executa o linter ESLint para verificar e corrigir problemas no código JavaScript/TypeScript.
 
+### **Makefile**
+
+Adicionalmente aos comando acima esse projeto também possui um Makefile com os seguintes alvos:
+
+- **`make build-image`**: Constrói uma imagem Docker para o projeto.
+
+- **`make run-image`**: Inicia um contêiner Docker com o projeto em execução.
+
+- **`make stop-image`**: Para e remove o contêiner Docker do projeto.
+
+- **`make tag-image`**: Adiciona uma tag à imagem Docker.
+
+- **`make publish-image`**: Publica a imagem Docker em um registro (é necessário configurar o registro).
 
 
 ## **Rodando Localmente**
@@ -62,15 +75,32 @@ Para executar o front-end localmente, siga os passos abaixo:
 
 1. Certifique-se de ter a API do **[Lumi Back](https://github.com/miguelsmuller/lumi-back)** em execução.
 
-2. Instale as dependências:
+2. Configure as variáveis de ambiente e ajuste as configurações necessária copiando o arquivo `.env.template` para um `.env.local`.
+
+3. Instale as dependências:
 ```bash
 npm install
 ```
 
-3. Inicie o front-end em modo de desenvolvimento:
+4. Inicie o front-end em modo de desenvolvimento:
 ```bash
 npm run start
 ```
+
+### **Rodando a versão buildada**
+
+1. Primeiro, instale o pacote `serve` globalmente (caso ainda não tenha instalado):
+
+```bash
+npm install -g serve
+```
+
+2. Em seguida, navegue até a pasta `build` do projeto e execute:
+```bash
+serve -s build
+```
+
+Isso permitirá que você sirva a versão otimizada do projeto React localmente.
 
 ## **Screenshot**
 

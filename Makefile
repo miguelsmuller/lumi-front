@@ -40,7 +40,7 @@ build-image:
 ## Start the application in a Docker container
 run-image:
 	docker run --name $(DOCKER_CONTAINER_NAME) \
-		-p 3000:80 \
+		-p 2004:80 \
 		-d -it $(DOCKER_IMAGE_NAME)
 
 
