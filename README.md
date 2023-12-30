@@ -38,8 +38,12 @@ Os detalhes completos do desafio, incluindo especificações para o projeto do f
 │   ├── react-app-env.d.ts
 │   ├── App.tsx
 │   └── index.tsx
-├── tsconfig.json
+├── .editorconfig
+├── .gitignore
 ├── package.json
+├── tsconfig.json
+├── Makefile
+├── Dockerfile
 └── README.md
 ```
 
@@ -75,7 +79,13 @@ Para executar o front-end localmente, siga os passos abaixo:
 
 1. Certifique-se de ter a API do **[Lumi Back](https://github.com/miguelsmuller/lumi-back)** em execução.
 
-2. Configure as variáveis de ambiente e ajuste as configurações necessária copiando o arquivo `.env.template` para um `.env.local`.
+2. Configuração do Arquivo `.env`:
+   - Copie o arquivo `.env.example` para `.env`:
+    ```bash
+    cp .env.example .env
+    ```
+
+   - Preencha as variáveis de ambiente conforme necessário no arquivo `.env`.
 
 3. Instale as dependências:
 ```bash
