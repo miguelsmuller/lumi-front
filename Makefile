@@ -34,14 +34,14 @@ help:
 build-image:
 	docker build . \
     -t $(DOCKER_IMAGE_NAME):$(GIT_HASH) \
-    --build-arg REACT_APP_API_URL=http://localhost:1234
+    --build-arg REACT_APP_API_URL=http://localhost:2002
 
 
 ## Start the application in a Docker container
 run-image:
 	docker run --name $(DOCKER_CONTAINER_NAME) \
 		-p 2004:80 \
-		-d -it $(DOCKER_IMAGE_NAME)
+		-d -it $(DOCKER_IMAGE_NAME):$(GIT_HASH)
 
 
 ## Stop the running Docker container
